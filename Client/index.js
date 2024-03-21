@@ -5,8 +5,8 @@ const rDiv = document.getElementById('result')
 
 const SCANNER = new  Html5QrcodeScanner('scanner', {
     qrbox: {
-        width: 300,
-        height: 300,
+        width: 250,
+        height: 250,
     },
     fps: 20,
 }) 
@@ -17,9 +17,10 @@ function success(res){
     console.log(res)
     bDiv.innerHTML = `
     <h1>Scanned!<h1>
+    <h2> Scanned Data is : ${res}</h2>
+    <p>This is the scanned data: </p>
+    <p>${res}</p>
     `
-    // <p>This is the scanned data: </p>
-    // <p>${res}</p>
 
 
     SCANNER.clear()
@@ -45,6 +46,7 @@ async function TIME_IN(data){
   .then((response) => response.json())
   .then((status) => rDiv.innerHTML = `
   <h1>Verified!<h1>
-  <p>${status.status_res}</p>`
+  <p>${status.status_res}</p>
+  `
 );
-}
+} 
